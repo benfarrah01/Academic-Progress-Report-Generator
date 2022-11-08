@@ -1,0 +1,39 @@
+source_id: 1lc6VxNxAvdm4KOsDthpTtQqbfVWaFTeZFjFyIMVg_0M
+sheets:
+  - name: APR_Gnerator_Sample Spreadsheet
+    regions:
+      - name: students_info
+        start: A1
+        end: D18
+        contains_headers: true
+        types: string
+      - name: engineering_efforts
+        start: E1
+        end: AJ18
+        contains_headers: true
+        types: float
+        fill: true
+      - name: projects
+        start: AM1
+        end: AO18
+        contains_headers: true
+        types: float
+        fill: true
+      - name: surveys
+        start: AR1
+        end: AW18
+        contains_headers: true
+        types: float
+        fill: true
+      - name: exams
+        start: AZ1
+        end: BA18
+        contains_headers: true
+        types: float
+        fill: true
+      - name: participation
+        start: BD1
+        end: BD18
+        contains_headers: true
+        types: float
+        fill: true
