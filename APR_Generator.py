@@ -1,5 +1,11 @@
 from Sample_Data_Structure import Students
 
+def assignment_filter(Assignments:dict):
+    for grade in Assignments.values:
+        if grade <= 60:
+            print(Assignments.values)
+
+    
 
 def apr_generator(): 
     """This function will access List of APR'S and create them"""
