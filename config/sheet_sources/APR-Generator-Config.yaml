@@ -1,0 +1,26 @@
+source_id: 1lc6VxNxAvdm4KOsDthpTtQqbfVWaFTeZFjFyIMVg_0M
+sheets:
+  - name: Sheet1
+    regions:
+      - name: Students_Info
+        start: A1
+        end: Q7
+        contains_headers: true
+        types:
+          Name: string
+          Email: string
+          Advisor: string
+          Advisor Email: string
+          Total: int
+          'Activity #1': int
+          'Practical #1': int
+          'Lab #1': int
+          'Activity #2': int
+          'Practical #2': int
+          'Lab #2': int
+          'Activity #3': int
+          'Practical #3': int
+          'Lab #3': int
+          'Activity #4': int
+          'Practical #4': int
+          'Lab #4': int
