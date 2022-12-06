@@ -1,5 +1,6 @@
 """"This file, when put into `SheetShuttle/plugins`, can be run to display the contents of the sheet."""
 from sheetshuttle import sheet_collector
+import pandas as pd
 #from sheetshuttle import Sheet
 
 # File containing authentication information. DON'T PUSH `new_key.json` TO GITHUB!!!
@@ -14,6 +15,16 @@ def run(sheets_keys_file, sheets_config_directory, **kwargs):
     my_collector = sheet_collector.SheetCollector(key_file, sources_dir)
     my_collector.collect_files()
     # Display contents of the sheet
-    my_collector.print_contents()
+
+    #my_collector.print_contents()
+
+    # print((type(my_collector.sheets_data)))
+    # print(my_collector.sheets_data.values)
 
     #my_sheet = sheet_collector.Sheet()
+    
+    for key, s in my_collector.sheets_data.items():
+         print(key,s.regions)
+    
+    
+    my_collector.sheets_data..print_region()
