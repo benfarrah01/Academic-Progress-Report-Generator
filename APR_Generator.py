@@ -1,5 +1,8 @@
 #from Sample_Data_Structure import Students
 
+from re import X
+
+
 All_assignments = {'Assignments 1': 45, 'Assignment 2' : 50, 'Assignment 3' : 75, 'Assignment 4' : 90, 'Assignment 5' : 55} 
 Assignments = []
 #print Assignments()
@@ -7,7 +10,7 @@ Assignments = []
 def assignment_filter(All_assignments:dict):
     """Filter through posted aassignments and remove any over 60%"""
     for key in All_assignments.keys():
-        Assignment = All_assignments.get(key,None)
+        Assignment = All_assignments.get(key,X)
         if Assignment <= 60:
             Assignments.append(key) 
 
@@ -15,7 +18,7 @@ def assignment_filter(All_assignments:dict):
 def display_assignment(Assignments:list): 
     """Print each Assignment idividually"""
     for Assignment in Assignments: 
-        print (Assignment)
+        print (f"* {Assignment}")
 
     
 
