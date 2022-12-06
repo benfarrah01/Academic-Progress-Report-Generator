@@ -27,4 +27,6 @@ def run(sheets_keys_file, sheets_config_directory, **kwargs):
          print(key,s.regions)
     
     
-    my_collector.sheets_data..print_region()
+    #my_collector.sheets_data["APR-Generator-Config"].regions["Students_Info"].print_region()
+    for key, value in my_collector.sheets_data["APR-Generator-Config"].regions:
+          print(key,value)
