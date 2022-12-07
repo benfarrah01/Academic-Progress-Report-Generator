@@ -1,5 +1,8 @@
 from Sample_Data_Structure import Students
 
+from gmail_api.send_emails import send_message
+from gmail_api.send_emails import gmail_authenticate
+
 from re import X
 
 def assignment_filter(All_assignments:dict):
@@ -27,6 +30,9 @@ if __name__ == '__main__':
             assignment_filter(Students['Student_' + str(i+1)]['Assignments'])
             apr_generator(Students['Student_' + str(i+1)]['Current Grade'], Students['Student_' + str(i+1)]['Name'], 
             Students['Student_' + str(i+1)]['Assigned Class'], Students['Student_' + str(i+1)]['Days Missed'])
-        elif name_input != (Students['Student_' + str(i+1)]['Name']):
-            print(f"Name is not in the list. Please try again!")
+            service = gmail_authenticate()
+            send_message(service, Students['Student_' + str(i+1)]['Student Email'], "This is a subject", 
+    "This is the body of the email", ["apr.txt"])
+        # elif name_input != (Students['Student_' + str(i+1)]['Name']):
+        #     print(f"Name is not in the list. Please try again!")
             

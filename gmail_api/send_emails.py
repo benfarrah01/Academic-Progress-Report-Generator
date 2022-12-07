@@ -38,7 +38,7 @@ def gmail_authenticate():
     return build('gmail', 'v1', credentials=creds)
 
 # get the Gmail API service
-service = gmail_authenticate()
+# service = gmail_authenticate()
 
 # Adds the attachment with the given filename to the given message
 def add_attachment(message, filename):
@@ -90,5 +90,5 @@ def send_message(service, destination, obj, body, attachments=[]):
     ).execute()
 
     # test send email
-send_message(service, "anargya01@allegheny.edu", "This is a subject", 
-"This is the body of the email", ["test.txt"])
+# send_message(service, "anargya01@allegheny.edu", "This is a subject", 
+# "This is the body of the email", ["test.txt"])
