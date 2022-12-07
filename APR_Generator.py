@@ -7,7 +7,7 @@ from typing import List
 
 
 # All_assignments = {'Assignments 1': 45, 'Assignment 2' : 50, 'Assignment 3' : 75, 'Assignment 4' : 90, 'Assignment 5' : 55} 
-Assignments = []
+# Assignments = []
 #print Assignments()
 
 def assignment_filter(All_assignments:dict):
@@ -37,8 +37,15 @@ def apr_generator(current_grade: int, student_name: str, assigned_class: str, da
     print(f"you have missed {days_missed} days. If this continues you may be in danger of failing this course, please reach out to me to see how you can bring this up, and get back on track for success!")
 
 if __name__ == '__main__':
-    assignment_filter(Students['Student_2']['Assignments'])
-    apr_generator(Students['Student_2']['Current Grade'], Students['Student_2']['Name'], 
-    Students['Student_2']['Assigned Class'], Students['Student_2']['Days Missed'])
+    # assignment_filter(Students['Student_2']['Assignments'])
+    # apr_generator(Students['Student_2']['Current Grade'], Students['Student_2']['Name'], 
+    # Students['Student_2']['Assigned Class'], Students['Student_2']['Days Missed'])
+    Assignments = []
+    name_input = input("Who do you want to send the APR to? ")
+    for i in range(len(Students)):
+        if name_input == (Students['Student_' + str(i+1)]['Name']):
+            assignment_filter(Students['Student_' + str(i+1)]['Assignments'])
+            apr_generator(Students['Student_' + str(i+1)]['Current Grade'], Students['Student_' + str(i+1)]['Name'], 
+            Students['Student_' + str(i+1)]['Assigned Class'], Students['Student_' + str(i+1)]['Days Missed'])
     # assignment_filter(All_assignments)
     # apr_generator() 
