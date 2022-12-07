@@ -12,3 +12,6 @@
     - The command in step 8 definitely works in powershell, not tested in cmd
 8. Run command `sheetshuttle -pn APR-Generator`
     - `pip` install dependencies as needed
+
+NOTE: if you don't want to move the python file, you can cd to `SheetShuttle/` and run the command `sheetshuttle -pd 'C:\School(c-drive)\cmpsc\Repositories\203\apr-generator-plugin' -pn access_sheets`
+    - You must already have the key file in `/SheetShuttle` and have completed steps 4-6.
