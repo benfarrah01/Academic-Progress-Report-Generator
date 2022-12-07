@@ -41,28 +41,5 @@ Students = {'Student_1': {'Current Grade': 60,
            }
 
 
-# print(Students['Student_1']['Assignments']['Assignment 2'])
-
-# print(Students['Student_1']['Current Grade'])
-
-# my_array = []
-
-# for innerdict in Students.values():
-#     for value in innerdict.values():
-#         my_array.append(innerdict)
-
-# grade_array = []
-
-# for i in my_array:      
-#     if my_array.index() % 6 == 0:
-#         grade_array.append[i]
-
-# print(grade_array)
-
-
-# print(my_array)
-
-
-
 
 
