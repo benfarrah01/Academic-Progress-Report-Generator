@@ -1,5 +1,3 @@
-import csv
-
 """"This file, when put into `SheetShuttle/plugins`, can be run to display the contents of the sheet."""
 from sheetshuttle import sheet_collector
 import pandas as pd
@@ -11,6 +9,7 @@ key_file='new_key.json'
 sources_dir='config/sheet_sources'
 
 def run(sheets_keys_file, sheets_config_directory, **kwargs):
+     global master_dict
      """Example run function. Collect and display info from google sheet."""
      # Create SheetCollector object named `my_collector`
      #   Created with args `key_file` and `sources_dir`
@@ -51,6 +50,16 @@ def run(sheets_keys_file, sheets_config_directory, **kwargs):
           # nested dict at each key
           print(master_dict[k])
           print()
+
+     
+     print("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+     # name_input = input("Enter a name: ")
+     # for i in range(len(master_dict)):
+     #      if name_input == master_dict[i]:
+     #           austin_powers(master_dict[i])
+
+
      
 
                
@@ -73,3 +82,7 @@ def add_info_to_dict(master_dict, studentname, studentemail, advisorname, adviso
 # updated nested dict with new dict
 def add_dict_to_dict(master_dict, my_dict):
      master_dict.update(my_dict)
+
+
+def austin_powers(word):
+     print(f"Do I make {word} horny, baby? Yeah baby!")
