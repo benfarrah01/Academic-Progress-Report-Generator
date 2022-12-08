@@ -26,6 +26,14 @@ for p_id, p_info in data.items():
                     print(apr)
                 #print(total_value)
 
+def compare_stu_super(super_user, user):
+    score = user / super_user
+    if score <= .7:
+        return True 
+    elif score >= .7:
+        return False
+    return score
+
 
 
 
