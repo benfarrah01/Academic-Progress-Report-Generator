@@ -84,5 +84,3 @@ def add_dict_to_dict(master_dict, my_dict):
      master_dict.update(my_dict)
 
 
-def austin_powers(word):
-     print(f"Do I make {word} horny, baby? Yeah baby!")
