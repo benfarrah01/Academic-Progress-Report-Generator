@@ -68,9 +68,11 @@ def run(sheets_keys_file, sheets_config_directory, **kwargs):
 
                
 # accept data to create nested dict with specific format
-def make_dict(studentname, studentemail, advisorname, advisoremail, points):
+def make_dict(classname, studentattendance, studentname, studentemail, advisorname, advisoremail, points):
      my_dict = {
           studentname: {
+               "Class": classname,
+               "Attendance": studentattendance,
                "Email": studentemail,
                "Advisor": advisorname, 
                "Advisor_Email": advisoremail, 
@@ -79,8 +81,8 @@ def make_dict(studentname, studentemail, advisorname, advisoremail, points):
      return my_dict
 
 # update nested dict with new values (turn new values into dict before updating nested dict)
-def add_info_to_dict(master_dict, studentname, studentemail, advisorname, advisoremail, points):
-     my_dict = make_dict(studentname, studentemail, advisorname, advisoremail, points)
+def add_info_to_dict(master_dict, lassname, studentattendance, studentname, studentemail, advisorname, advisoremail, points):
+     my_dict = make_dict(lassname, studentattendance, studentname, studentemail, advisorname, advisoremail, points)
      master_dict.update(my_dict)
 
 # updated nested dict with new dict
