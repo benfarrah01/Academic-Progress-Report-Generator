@@ -4,9 +4,11 @@ sheets:
     regions:
       - name: Students_Info
         start: A1
-        end: Q7
+        end: S7
         contains_headers: true
         types:
+          Class: string
+          Attendance: int
           Name: string
           Email: string
           Advisor: string

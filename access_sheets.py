@@ -27,6 +27,8 @@ def run(sheets_keys_file, sheets_config_directory, **kwargs):
           # create initial dict
           if count == 0:
                master_dict = make_dict(
+                    dict_data["Class"][count],
+                    dict_data["Attendance"][count],
                     dict_data["Name"][count],
                     dict_data["Email"][count],
                     dict_data["Advisor"][count],
@@ -37,6 +39,8 @@ def run(sheets_keys_file, sheets_config_directory, **kwargs):
           else:
                my_dict = add_info_to_dict(
                     master_dict,
+                    dict_data["Class"][count],
+                    dict_data["Attendance"][count],
                     dict_data["Name"][count],
                     dict_data["Email"][count],
                     dict_data["Advisor"][count],
