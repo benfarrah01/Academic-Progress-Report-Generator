@@ -8,7 +8,7 @@ sheets:
         contains_headers: true
         types:
           Class: string
-          Attendance: int
+          Attendance: string
           Name: string
           Email: string
           Advisor: string
