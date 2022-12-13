@@ -4,37 +4,37 @@ import sys
 
 data = Students
 
-i = 0
-k = 0
-for p_id, p_info in data.items():
-    if p_id == "Superuser":
-        for key in p_info:
-            if key == "Total":
-                k = p_info.get(key,0)
-                print(k)
+def compare_stu_super(total_value):
+    k = 0
+    for p_id, p_info in data.items():
+        if p_id == "Superuser":
+            for key in p_info:
+                if key == "Total":
+                    k = p_info.get(key,0)
+                    # print(k)
+        # else:
+        #     for key in p_info:
+        #         if key == "Total":
+        #             # total_value = p_info.get(key,0)
+        #             if total_value/k < .7:
+        #                 apr = "You are dumb"
+        #                 print(apr)
+    if total_value/k < .7: 
+        return True
     else:
-
-    #print("\nPerson ID:", p_id)
-
-
-        for key in p_info:
-        #print(f"{key}: " + f"{p_info[key]}")
-            if key == "Total":
-                total_value = p_info.get(key,0)
-                if total_value/k < .7:
-                    apr = "You are dumb"
-                    print(apr)
-                #print(total_value)
-<<<<<<< HEAD
-=======
-
-def compare_stu_super(super_user, user):
-    score = user / super_user
-    if score <= .7:
-        return True 
-    elif score >= .7:
         return False
-    return score
+
+    
+                #print(total_value)
+
+# def compare_stu_super(super_user, user):
+#     # user = input("User score: ")
+#     # super_user = input("Superuser score: ")
+#     score = user / super_user
+#     if score <= .7:
+#         return True 
+#     else:
+#         return False
 
 
 
@@ -57,4 +57,3 @@ def compare_stu_super(super_user, user):
 #             superuser = data[4]
 #             if i/superuser > .7:
 #                 return apr
->>>>>>> 4ab82a674b311bb1c63112d4747d427cd78292b1
