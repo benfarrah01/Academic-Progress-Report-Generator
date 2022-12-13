@@ -1,12 +1,16 @@
 site_name: APR-Generator-Plugin
 
 theme:
-  name: "material"
+  name: mkdocs
+  nav_style: dark 
 
 plugins:
   - mkdocstrings
 
 nav:
-  - index.md
-  - apr-gen.md
-  - README3.md
+  - Home: READM3.md
+  - About: docs/apr-gen.md
+
+docs:
+  - READM3.md
+  - docs/apr-gen.md
