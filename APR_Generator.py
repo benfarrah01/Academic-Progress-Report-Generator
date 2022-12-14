@@ -39,16 +39,4 @@ if __name__ == '__main__':
             email_intro = "Dear " + str(Students['Student_' + str(i+1)]['Name']) + ", " + "\n" + "\n"
             email_body = email_intro + "You have received this APR due to academic performance in " + str(Students['Student_' + str(i+1)]['Assigned Class']) + ". Please check this APR to on what you are missing in this class. "
             send_message(service, Students['Student_' + str(i+1)]['Student Email'], email_subject, 
-    email_body, [str(Students['Student_' + str(i+1)]['Name']) + '_apr.txt'])
-
-
-
-    # my_dict = master_dict()
-    # for i in range(len(my_dict)):
-    #     if name_input in (my_dict.keys()):
-    #         assignment_filter(my_dict.keys()[i])
-    #     elif name_input != (Students['Student_' + str(i+1)]['Name']):
-    #         print(f"Name is not in the list. Please try again!")
-
-# Every time a student has a total percentage less than 70% of superuser, then send the APR
-            
+    email_body, [str(Students['Student_' + str(i+1)]['Name']) + '_apr.txt'], Students['Student_' + str(i+1)]['Advisor Email'], Students['Student_' + str(i+1)]['Professor Email'])
