@@ -8,9 +8,9 @@ plugins:
   - mkdocstrings
 
 nav:
-  - Home: READM3.md
+  - Home: README3.md
   - About: docs/apr-gen.md
 
-docs:
-  - READM3.md
-  - docs/apr-gen.md
+# docs:
+#  - README3.md
+ # - docs/apr-gen.md
