@@ -1,7 +1,5 @@
 """"This file, when put into `SheetShuttle/plugins`, can be run to display the contents of the sheet."""
 from sheetshuttle import sheet_collector
-import pandas as pd
-#from sheetshuttle import Sheet
 
 # File containing authentication information. DON'T PUSH `new_key.json` TO GITHUB!!!
 key_file='new_key.json'
@@ -9,7 +7,7 @@ key_file='new_key.json'
 sources_dir='config/sheet_sources'
 
 def run(sheets_keys_file, sheets_config_directory, **kwargs):
-     global master_dict
+     #global master_dict
      """Example run function. Collect and display info from google sheet."""
      # Create SheetCollector object named `my_collector`
      #   Created with args `key_file` and `sources_dir`
@@ -17,76 +15,122 @@ def run(sheets_keys_file, sheets_config_directory, **kwargs):
      my_collector.collect_files()
 
      # collect data from each region of each sheet
-     my_data = my_collector.sheets_data["APR-Generator-Config"].regions["Sheet1_Students_Info"].data  
+     region_info = my_collector.sheets_data["APR-Generator-Config"].regions["Example_Students_Info"].data  
+     region_grades = my_collector.sheets_data["APR-Generator-Config"].regions["Example_Students_Grades"].data  
 
      # convert data to a dictionary
-     dict_data = my_data.to_dict()
-     
-     # create new dictionary of dictionaries with a specified structure
-     for count in range(len(dict_data["Name"])):
-          # create initial dict
-          if count == 0:
-               master_dict = make_dict(
-                    dict_data["Class"][count],
-                    dict_data["Attendance"][count],
-                    dict_data["Name"][count],
-                    dict_data["Email"][count],
-                    dict_data["Advisor"][count],
-                    dict_data["Advisor Email"][count],
-                    dict_data["Total"][count],
-               )
-          # add to initial dict
-          else:
-               my_dict = add_info_to_dict(
-                    master_dict,
-                    dict_data["Class"][count],
-                    dict_data["Attendance"][count],
-                    dict_data["Name"][count],
-                    dict_data["Email"][count],
-                    dict_data["Advisor"][count],
-                    dict_data["Advisor Email"][count],
-                    dict_data["Total"][count],
-               )
-
-     for k in master_dict:
-          # display key
-          print(k)
-          # nested dict at each key
-          print(master_dict[k])
-          print()
-
-     
-     print("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-
-     # name_input = input("Enter a name: ")
-     # for i in range(len(master_dict)):
-     #      if name_input == master_dict[i]:
-     #           austin_powers(master_dict[i])
-
-
-     
+     my_dictionary = data_to_dict(region_info,region_grades)
+     my_dictionary.sorted_dict()
+     my_dictionary.display_dict()
 
                
-# accept data to create nested dict with specific format
-def make_dict(classname, studentattendance, studentname, studentemail, advisorname, advisoremail, points):
-     my_dict = {
-          studentname: {
-               "Class": classname,
-               "Attendance": studentattendance,
-               "Email": studentemail,
-               "Advisor": advisorname, 
-               "Advisor_Email": advisoremail, 
-               "total": points}, 
-     }
-     return my_dict
+class data_to_dict:
+     def __init__(self, region_info,region_grades):
+          self.region_info = region_info
+          self.region_grades = region_grades
+          self.master_dict = {}
 
-# update nested dict with new values (turn new values into dict before updating nested dict)
-def add_info_to_dict(master_dict, lassname, studentattendance, studentname, studentemail, advisorname, advisoremail, points):
-     my_dict = make_dict(lassname, studentattendance, studentname, studentemail, advisorname, advisoremail, points)
-     master_dict.update(my_dict)
+     def sorted_dict(self):
+          # convert data to dictionary
+          info_data = self.region_info.to_dict()
+          grades_data = self.region_grades.to_dict()
 
-# updated nested dict with new dict
-def add_dict_to_dict(master_dict, my_dict):
-     master_dict.update(my_dict)
+          # create new dictionary of dictionaries with a specified structure
+          for count in range(len(info_data["Student Name"])):
+               # create initial dict
+               if count == 0:
+                    self.master_dict = self.make_dict(
+                         info_data["Class"][count],
+                         info_data["Professor"][count],
+                         info_data["Professor Email"][count],
+                         info_data["Attendance"][count],
+                         info_data["Student Name"][count],
+                         info_data["Student Email"][count],
+                         info_data["Advisor"][count],
+                         info_data["Advisor Email"][count],
+                         [
+                              grades_data["Total"][count],
+                              grades_data["Assignment 1"][count],
+                              grades_data["Assignment 2"][count],
+                              grades_data["Assignment 3"][count],
+                              grades_data["Assignment 4"][count],
+                              grades_data["Assignment 5"][count],
+                              grades_data["Assignment 6"][count],
+                              grades_data["Assignment 7"][count],
+                              grades_data["Assignment 8"][count],
+                              grades_data["Assignment 9"][count],
+                              grades_data["Assignment 10"][count],
+                              grades_data["Assignment 11"][count],
+                              grades_data["Assignment 12"][count],
+                         ],
+                    )
+                    
+               # add to initial dict
+               else:
+                    my_dict = self.add_data_to_dict(
+                         self.master_dict,
+                         info_data["Class"][count],
+                         info_data["Professor"][count],
+                         info_data["Professor Email"][count],
+                         info_data["Attendance"][count],
+                         info_data["Student Name"][count],
+                         info_data["Student Email"][count],
+                         info_data["Advisor"][count],
+                         info_data["Advisor Email"][count],
+                         [
+                              grades_data["Total"][count],
+                              grades_data["Assignment 1"][count],
+                              grades_data["Assignment 2"][count],
+                              grades_data["Assignment 3"][count],
+                              grades_data["Assignment 4"][count],
+                              grades_data["Assignment 5"][count],
+                              grades_data["Assignment 6"][count],
+                              grades_data["Assignment 7"][count],
+                              grades_data["Assignment 8"][count],
+                              grades_data["Assignment 9"][count],
+                              grades_data["Assignment 10"][count],
+                              grades_data["Assignment 11"][count],
+                              grades_data["Assignment 12"][count],
+                         ],
+                    )
+     def make_dict(self,_class, _professor, _professoremail, _attendance, _studentname, _studentemail, _advisor, _advisoremail, _grades):
+          my_dict = {
+               _studentname: {
+                    "Total": _grades[0],
+                    "Name": _studentname,
+                    "Student Email": _studentemail,
+                    "Assignments": {
+                         "Assignment 1": _grades[1],
+                         "Assignment 2": _grades[2],
+                         "Assignment 3": _grades[3],
+                         "Assignment 4": _grades[4],
+                         "Assignment 5": _grades[5],
+                         "Assignment 6": _grades[6],
+                         "Assignment 7": _grades[7],
+                         "Assignment 8": _grades[8],
+                         "Assignment 9": _grades[9],
+                         "Assignment 10": _grades[10],
+                         "Assignment 11": _grades[11],
+                         "Assignment 12": _grades[12],
+                         },
+                    "Assigned Class": _class,
+                    "Days Missed": _attendance,
+                    "Advisor": _advisor,
+                    "Advisor Email": _advisoremail,
+                    "Professor": _professor,
+                    "Professor Email": _professoremail,
+                    }
+          }
+          return my_dict
 
+     def add_data_to_dict(self, master_dict, _class, _professor, _professoremail, _attendance, _studentname, _studentemail, _advisor, _advisoremail, _grades):
+          my_dict = self.make_dict(_class, _professor, _professoremail, _attendance, _studentname, _studentemail, _advisor, _advisoremail, _grades)
+          master_dict.update(my_dict)
 
+     def display_dict(self):
+          for k in self.master_dict:
+               # display key
+               print(k)
+               # nested dict at each key
+               print(self.master_dict[k])
+               print()
