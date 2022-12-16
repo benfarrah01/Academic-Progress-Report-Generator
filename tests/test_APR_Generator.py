@@ -10,5 +10,5 @@ def test_assignment_filter(All_Assignments):
         output = True
     assert expected_output == output
 
-def test_apr_generator(current_grade: int, student_name: str, assigned_class: str, days_missed: int):
+#def test_apr_generator(current_grade: int, student_name: str, assigned_class: str, days_missed: int):
 
