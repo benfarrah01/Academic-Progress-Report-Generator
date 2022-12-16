@@ -1,5 +1,5 @@
 import pytest
-import APR_Generator
+from APR_Generator import assignment_filter
 from Sample_Data_Structure import Students
 
 students = Students
@@ -8,7 +8,7 @@ students = Students
 def test_assignment_filter(All_Assignments):
     passed_assignments = 0
     expected_passed_assignments = 0
-    failed_assignments = APR_Generator.assignment_filter(All_Assignments)
+    failed_assignments = assignment_filter(All_Assignments)
     for assignment in failed_assignments:
         if assignment > 60:
             passed_assignments += 1
