@@ -5,3 +5,5 @@ import superuser
 def test_superuser_compared_to_student(total_value, k):
 
     superuser_score = superuser.compare_stu_super(total_value)
+
+    assert superuser_score == k
