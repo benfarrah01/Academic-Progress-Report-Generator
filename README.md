@@ -36,7 +36,3 @@ This is a plugin created by team 0NE for sheetshuttle. At our client's request w
     - The command in step 8 definitely works in powershell, not tested in cmd
 10. Run command `sheetshuttle -pn APR-Generator`
     - `pip` install dependencies as needed
-
-
-## Tests
-
