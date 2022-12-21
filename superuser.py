@@ -1,13 +1,16 @@
-from access_sheets import run
-from APR_Generator import apr_generator
 from Sample_Data_Structure import Students
+import sys
 
-def compare_to_super_user():
-    apr = "You need to do better"
-    data = Students
-    for row in data:
-        for i in row:
-            i += (i+1)
-            superuser = data[1]
-            if i/superuser > .7:
-                return apr
+data = Students
+
+def compare_stu_super(total_value):
+    k = 0
+    for p_id, p_info in data.items():
+        if p_id == "Superuser":
+            for key in p_info:
+                if key == "Total":
+                    k = p_info.get(key,0)
+    if total_value/k < .7:
+        return True
+    else:
+        return False

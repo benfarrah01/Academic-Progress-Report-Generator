@@ -1,26 +1,68 @@
 source_id: 1lc6VxNxAvdm4KOsDthpTtQqbfVWaFTeZFjFyIMVg_0M
 sheets:
-  - name: Sheet1
+  - name: Template
     regions:
       - name: Students_Info
         start: A1
-        end: Q7
+        end: H7
         contains_headers: true
         types:
-          Name: string
-          Email: string
+          Class: string
+          Professor: string
+          Professor Email: string
+          Attendance: string
+          Student Name: string
+          Student Email: string
           Advisor: string
           Advisor Email: string
-          Total: int
-          'Activity #1': int
-          'Practical #1': int
-          'Lab #1': int
-          'Activity #2': int
-          'Practical #2': int
-          'Lab #2': int
-          'Activity #3': int
-          'Practical #3': int
-          'Lab #3': int
-          'Activity #4': int
-          'Practical #4': int
-          'Lab #4': int
+      - name: Students_Grades
+        start: I1
+        end: U7
+        contains_headers: true
+        types:
+          Total: string
+          Assignment 1: string
+          Assignment 2: string
+          Assignment 3: string
+          Assignment 4: string
+          Assignment 5: string
+          Assignment 6: string
+          Assignment 7: string
+          Assignment 8: string
+          Assignment 9: string
+          Assignment 10: string
+          Assignment 11: string
+          Assignment 12: string
+  - name: Example
+    regions:
+      - name: Students_Info
+        start: A1
+        end: H7
+        contains_headers: true
+        types:
+          Class: string
+          Professor: string
+          Professor Email: string
+          Attendance: string
+          Student Name: string
+          Student Email: string
+          Advisor: string
+          Advisor Email: string
+      - name: Students_Grades
+        start: I1
+        end: U7
+        contains_headers: true
+        types:
+          Total: string
+          Assignment 1: string
+          Assignment 2: string
+          Assignment 3: string
+          Assignment 4: string
+          Assignment 5: string
+          Assignment 6: string
+          Assignment 7: string
+          Assignment 8: string
+          Assignment 9: string
+          Assignment 10: string
+          Assignment 11: string
+          Assignment 12: string

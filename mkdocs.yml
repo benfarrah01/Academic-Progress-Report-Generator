@@ -1,0 +1,16 @@
+site_name: APR-Generator-Plugin
+
+theme:
+  name: mkdocs
+  nav_style: dark 
+
+plugins:
+  - mkdocstrings
+
+nav:
+  - Home: README3.md
+  - About: docs/apr-gen.md
+
+# docs:
+#  - README3.md
+ # - docs/apr-gen.md

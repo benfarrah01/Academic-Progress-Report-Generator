@@ -38,7 +38,7 @@ def gmail_authenticate():
     return build('gmail', 'v1', credentials=creds)
 
 # get the Gmail API service
-service = gmail_authenticate()
+# service = gmail_authenticate()
 
 # Adds the attachment with the given filename to the given message
 def add_attachment(message, filename):
@@ -67,28 +67,34 @@ def add_attachment(message, filename):
     msg.add_header('Content-Disposition', 'attachment', filename=filename)
     message.attach(msg)
 
-def build_message(destination, obj, body, attachments=[]):
+def build_message(destination, obj, body, attachments=[], cc1 = None, cc2 = None):
     if not attachments: # no attachments given
         message = MIMEText(body)
         message['to'] = destination
         message['from'] = our_email
         message['subject'] = obj
+        message['cc'] = cc1
+        message['cc'] = cc2
     else:
         message = MIMEMultipart()
         message['to'] = destination
         message['from'] = our_email
         message['subject'] = obj
+        message['cc'] = cc1
+        message['cc'] = cc2
         message.attach(MIMEText(body))
         for filename in attachments:
             add_attachment(message, filename)
     return {'raw': urlsafe_b64encode(message.as_bytes()).decode()}
 
-def send_message(service, destination, obj, body, attachments=[]):
+def send_message(service, destination, obj, body, attachments=[], cc1 = None, cc2 = None):
     return service.users().messages().send(
     userId="me",
-    body=build_message(destination, obj, body, attachments)
+    body=build_message(destination, obj, body, attachments, cc1, cc2)
     ).execute()
 
+
     # test send email
-send_message(service, "anargya01@allegheny.edu", "This is a subject", 
-"This is the body of the email", ["test.txt"])
+# send_message(service, "anargya01@allegheny.edu", "This is a subject", 
+# "This is the body of the email", ["test.txt"])
+
